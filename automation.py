@@ -13,5 +13,9 @@ def bacon():
 	spam()
 	print("\n\nNow we call the print(spam()) in the next line: \n")
 	print(spam())
-	
-bacon()
+
+# Phone Number Validation
+def isPhoneNumber(text):
+	if len(text) != 12:
+		return False
+	for i in range(0, 3)
