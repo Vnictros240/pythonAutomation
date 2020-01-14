@@ -47,17 +47,25 @@ def avgTemps():
             print(data.mean()["st1"])
             return data
         else:
-            print("File does not exist.")
+            print("File does not exist. \nPlease double check the word you're trying to lookup. \n\n")
         time.sleep(10)
 
 # Creating an English Dictionary
 # requires 'import json'
+# requires ' from difflib import get_close_matches'
+
+data - json.load(open("data.json"))
+
 def translate(word):
+    word = word.lower().strip()
     if word in data[word]:
         return data[word]
+    elif len(get_close_matches(word, data.keys())) > 0:
+        return "Did you mean %s instead? " % get_close_matches(word, data.keys())[0]
     else:
         return "Word doesn't exist."
 
 def englishDictionary():
+
     word = input("Enter a word: ")
     print()
